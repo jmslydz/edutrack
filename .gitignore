@@ -1,0 +1,28 @@
+# Composer dependencies (regenerate with: composer install)
+/vendor/
+
+# Generated application cache (sessions, mpdf fonts, page cache)
+/application/cache/
+/application/logs/*.php
+!/application/logs/index.html
+
+# Local dev server logs & scratch
+/tmp/
+*.log
+
+# Local secrets — NEVER commit real credentials
+/application/config/email.local.php
+/application/config/database.local.php
+.env
+*.env
+
+# One-off debug / migration scripts at the repo root (dev only)
+/*.php
+!/index.php
+!/router.php
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,323 @@
+/* ==========================================================================
+   EduTrack Design System
+   Shared tokens + components used across ALL pages.
+   Source: extracted from Figma Make export (src/index.css) — colors,
+   spacing, and component styles kept 1:1 so every page stays consistent.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --color-primary: #0D9488;
+  --color-primary-dark: #0F766E;
+  --color-primary-light: #CCFBF1;
+  --color-primary-50: #F0FDFA;
+  --color-secondary: #F97316;
+  --color-accent: #F59E0B;
+  --color-sidebar: #0F4C45;
+  --color-danger: #EF4444;
+  --color-danger-bg: #FEF2F2;
+  --color-danger-bg-hover: #FEE2E2;
+  --color-text: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-faint: #94A3B8;
+  --color-border: #E2E8F0;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+a { color: inherit; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+
+/* Visible keyboard focus everywhere — accessibility requirement */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+  border-color: var(--color-primary) !important;
+}
+
+/* ---- Buttons ---- */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: var(--font-sans);
+}
+.btn-primary:hover { background: var(--color-primary-dark); }
+.btn-primary:disabled { background: #99C7C2; cursor: not-allowed; }
+
+.btn-secondary {
+  background: white;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font-sans);
+}
+.btn-secondary:hover { background: var(--color-primary-50); }
+
+.btn-danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: var(--font-sans);
+}
+.btn-danger:hover { background: var(--color-danger-bg-hover); }
+
+/* ---- Forms ---- */
+.form-group { margin-bottom: 16px; }
+
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 0.875rem;
+  transition: border-color 0.15s;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: white;
+}
+.form-input::placeholder { color: var(--color-text-faint); }
+
+.form-input.has-error {
+  border-color: var(--color-danger) !important;
+}
+
+.form-error-text {
+  color: var(--color-danger);
+  font-size: 0.78rem;
+  margin-top: 5px;
+  display: none;
+}
+.form-error-text.visible { display: block; }
+
+.input-icon-wrap { position: relative; }
+.input-icon-wrap .field-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-faint);
+  display: flex;
+}
+.input-icon-wrap .form-input { padding-left: 38px; }
+
+/* ---- Cards ---- */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-success { background: #DCFCE7; color: #16A34A; }
+.badge-neutral { background: #F1F5F9; color: #64748B; }
+.badge-warning { background: #FEF3C7; color: #D97706; }
+.day-pill {
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: #fff;
+  color: #475569;
+  border: 1px solid #CBD5E1;
+}
+.day-pill:hover { border-color: #0D9488; color: #0D9488; }
+.badge-admin   { background: #EDE9FE; color: #7C3AED; }
+.badge-teacher { background: #DBEAFE; color: #2563EB; }
+.badge-student { background: #CCFBF1; color: #0D9488; }
+
+/* ---- Tables ---- */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  padding: 12px 16px;
+  border-bottom: 1.5px solid var(--color-border);
+}
+tr.table-row td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 0.875rem;
+  vertical-align: middle;
+}
+.table-row:nth-child(even) td { background: #F8FFFE; }
+.table-row:hover td { background: #F0FDFA !important; }
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-overlay.visible { display: flex; }
+.modal {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  width: 480px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* ---- App shell (sidebar + topbar layout, used by dashboard pages) ---- */
+.app-shell { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 240px;
+  background: var(--color-sidebar);
+  flex-shrink: 0;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.sidebar-item:hover { background: rgba(255,255,255,0.1); color: white; }
+.sidebar-item.active { background: rgba(255,255,255,0.18); color: white; }
+.sidebar-item.active svg { color: #5EEAD4; }
+.sidebar-item.disabled {
+  cursor: default;
+  opacity: 0.45;
+  color: rgba(255,255,255,0.7);
+  justify-content: space-between;
+}
+.sidebar-item.disabled:hover { background: none; color: rgba(255,255,255,0.7); }
+.sidebar-item.disabled svg { color: rgba(255,255,255,0.7); }
+.sidebar-item.disabled .sidebar-soon {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+.main-content { flex: 1; min-width: 0; }
+
+.topbar {
+  height: 64px;
+  background: white;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 28px;
+  gap: 16px;
+}
+
+.content-area { padding: 28px; }
+
+/* Utility */
+.text-muted { color: var(--color-text-muted); }
+.text-faint { color: var(--color-text-faint); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
